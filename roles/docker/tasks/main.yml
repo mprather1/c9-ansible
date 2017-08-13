@@ -1,16 +1,3 @@
-- name: build cloud9 container...
-  docker_container:
-    name: cloud9
-    image: mprather1/c9-docker
-    hostname: Shintech-Development
-    state: started
-    restart: yes
-    network_mode: bridge
-    ports:
-      - "8080:8080"
-    env:
-      USERNAME: mprather
-      PASSWORD: TEST
-    networks:
-      - name: "{{ network_name }}"
-      
+- include: redis.yml
+- include: postgres.yml
+- include: cloud9.yml
